@@ -114,7 +114,7 @@ public class TreeDemo extends JPanel
         splitPane.setTopComponent(treeView);
         splitPane.setBottomComponent(htmlView);
  
-        Dimension minimumSize = new Dimension(500,500);
+        Dimension minimumSize = new Dimension(100, 50);
         htmlView.setMinimumSize(minimumSize);
         treeView.setMinimumSize(minimumSize);
         splitPane.setDividerLocation(100); 
