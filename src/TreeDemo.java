@@ -157,10 +157,12 @@ public class TreeDemo extends JPanel
     	//text = null;
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)
                            tree.getLastSelectedPathComponent();
+        htmlPane.setFont(new Font("Segoe UI", Font.PLAIN, 24));
         rootchang = node;
         if(!node.isLeaf()) {
-        	htmlPane.setFont(new Font("Segoe UI", Font.PLAIN, 24));
         	htmlPane.setText(printinfix(node)+"="+Integer.toString(CalculatorTree(node)));
+        }else {
+        	htmlPane.setText(node.toString());
         }
         
         
@@ -178,24 +180,7 @@ public class TreeDemo extends JPanel
     	}
         
     }
- 
-    private class BookInfo {
-        public String bookName;
-        public URL bookURL;
- 
-        public BookInfo(String book, String filename) {
-            bookName = book;
-            bookURL = getClass().getResource(filename);
-            if (bookURL == null) {
-                System.err.println("Couldn't find file: "
-                                   + filename);
-            }
-        }
- 
-        public String toString() {
-            return bookName;
-        }
-    }
+
  
     private void initHelp() {
         String s = "TreeDemoHelp.html";
