@@ -27,9 +27,9 @@ public class Homework1 {
 			a.setNodeValue(a.getNodeName());
 			return;
 		}
-		Node secound = new IIOMetadataNode(st.pop().toString());
+		Node secound = new IIOMetadataNode(stack.pop().toString());
 		Inorder(secound);
-		Node frist = new IIOMetadataNode(st.pop().toString());
+		Node frist = new IIOMetadataNode(stack.pop().toString());
 		Inorder(frist);
 		a.appendChild(secound);
 		a.appendChild(frist);
@@ -66,7 +66,8 @@ public class Homework1 {
 		a.setNodeValue(Integer.toString(result));
 	}
 	
-	static Stack st = new Stack();
+	static Stack stack = new Stack();
+	static Stack stacktree = new Stack();
 	static Node root;
 	
 	public static void main(String[] args) {
@@ -83,13 +84,14 @@ public class Homework1 {
 			
 		char[] dataC = dataS.toCharArray();	
 		for(int i=0;i<dataC.length;i++) {
-			st.push((char)dataC[i]);
+			stack.push((char)dataC[i]);
+			stacktree.push((char)dataC[i]);
 		}
-		root = new IIOMetadataNode(st.pop().toString());
+		root = new IIOMetadataNode(stack.pop().toString());
 		Inorder(root);
 		Infix(root);
 		System.out.println("="+root.getNodeValue());
-		
+		//TreeDemo tree = new TreeDemo();
+		TreeDemo.main(stacktree);
 	}
-
 }
